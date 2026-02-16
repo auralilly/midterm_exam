@@ -4,7 +4,7 @@
 
 Using the **provided SQL** (to create the database table) and the **provided HTML form**, you will build a simple PHP + database CRUD application.
 
-Users must be able to register for an event, and an administrator must be able to manage registrations.
+Users must be able to register for an event, and an administrator must be able to manage registrations. You DO NOT need to create a login or check that a user is logged in in order to see the admin page. 
 
 ---
 
