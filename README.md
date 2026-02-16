@@ -60,7 +60,6 @@ Your application must support:
 
 - Include **code comments** to explain what your code is doing
 - Use secure database coding practices (do not place raw user input directly into SQL)
-- Your pages must be generated dynamically using PHP
 
 ---
 
