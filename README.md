@@ -25,12 +25,12 @@ Users must be able to register for an event, and an administrator must be able t
 
 ---
 
-### 3) Registration Form (5 marks) 
+### 3) Registration Form 
 
 Using the provided HTML form:
 
 - Accept user input and submit it to the server 
-- **Sanitize and validate** the form data on the server (2 marks) 
+- **Sanitize and validate** the form data on the server (3 marks) 
 - If valid, **store the registration in the database** 
 - If invalid, display a clear error message and do not store the record 
 
