@@ -67,7 +67,7 @@ Your application must support:
 
 Submit the **GitHub repository link** as your answer on Blackboard 
 
-**Total - / 25 marks **
+**Total - / 25 marks**
 
 
 
