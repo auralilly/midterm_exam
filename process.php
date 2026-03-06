@@ -34,7 +34,7 @@ if ($email === ''){
      $errors[] = "Email is required.";
 }
 elseif(!filter_var($email, filter_validate_email)){
-    $errors[] = "Pleaseprovide a valid email";
+    $errors[] = "Please provide a valid email";
 }
 
 if ($phone === null || $phone === '') {
