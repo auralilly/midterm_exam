@@ -1,6 +1,6 @@
 <?php
 $host = "localhost"; 
-$db = "teamtracker"; 
+$db = "Partyplanner"; 
 $user = "root"; 
 $password = ""; 
 
