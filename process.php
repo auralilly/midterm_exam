@@ -79,3 +79,28 @@ if ($action === 'create') {
     header("Location: index.php?msg=added");
     exit;
 }
+elseif ($action === 'update' && $id > 0) {
+    $sql = "
+        UPDATE team_members SET
+            first_name = :first_name,
+            last_name  = :last_name,
+            phone      = :phone,
+            email      = :email,
+        WHERE id = :id
+    ";
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->bindParam(':first_name',  $first_name);
+    $stmt->bindParam(':last_name',   $last_name);
+    $stmt->bindParam(':phone',       $phone);
+    $stmt->bindParam(':email',       $email);
+    $stmt->bindParam(':id',          $id, PDO::PARAM_INT);
+
+    $stmt->execute();
+
+    header("Location: index.php?msg=updated");
+    exit;
+}
+
+header("Location: index.php");
+exit;
