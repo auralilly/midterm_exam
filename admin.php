@@ -24,3 +24,9 @@ try {
 <?php
 //update feature
 require "includes/config.php";
+
+if (!isset($_GET['id'])) {
+  die("No order ID provided.");
+}
+
+$first_name = $_GET['id'];

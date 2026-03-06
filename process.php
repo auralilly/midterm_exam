@@ -36,3 +36,11 @@ if ($email === ''){
 elseif(!filter_var($email, filter_validate_email)){
     $errors[] = "Pleaseprovide a valid email";
 }
+
+if ($phone === null || $phone === '') {
+    $errors[] = "Phone number is required.";
+} elseif (!filter_var($phone, FILTER_VALIDATE_REGEXP, [
+    'options' => ['regexp' => '/^[0-9\-\+\(\)\s]{7,25}$/']
+])) {
+    $errors[] = "Phone number format is invalid.";
+}
