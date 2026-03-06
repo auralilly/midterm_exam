@@ -76,4 +76,9 @@ $stmt->execute();
 
 
 $firstName = $stmt->fetch();
+
+if (!$firstName) {
+  die("he is not on the list");
+}
+?>
   
