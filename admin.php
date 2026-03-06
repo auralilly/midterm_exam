@@ -26,7 +26,7 @@ try {
 require "includes/config.php";
 
 if (!isset($_GET['id'])) {
-  die("No order ID provided.");
+  die("No id was provided.");
 }
 
 $first_name = $_GET['id'];
