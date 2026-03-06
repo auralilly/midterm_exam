@@ -29,4 +29,43 @@ if (!isset($_GET['id'])) {
   die("No id was provided.");
 }
 
-$first_name = $_GET['id'];
+$firstname = $_GET['id'];
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  
+  $firstName = trim($_POST['firstname'] ?? '');
+  $lastName  = trim($_POST['lastname'] ?? '');
+  $phone     = trim($_POST['phone'] ?? '');
+  $email     = trim($_POST['email'] ?? '');
+
+  if($firstname === '' || $lastName ===  ''|| $email === ''){ 
+    $error = "hey you we need these chuckles";
+  }
+  else{
+     $sql = "UPDATE registrations
+            SET first_name = :first_name,
+                last_name = :last_name,
+                phone = :phone,
+                email = :email,
+              
+            WHERE firstname = :firstname";
+             $stmt = $pdo->prepare($sql);
+
+    
+    $stmt->bindParam(':firstname', $firstName);
+    $stmt->bindParam(':lastname', $lastName);
+    $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':email', $email);
+
+    $stmt->bindParam(':firstname', $firstName);
+
+    $stmt->execute();
+
+    
+    header("Location: registrations.sql");
+    exit;
+  }
+}
+  

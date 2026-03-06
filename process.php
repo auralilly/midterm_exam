@@ -16,17 +16,17 @@ $email       = trim(filter_input(INPUT_POST, 'email',       FILTER_SANITIZE_EMAI
 $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT) ?? 0;
 
 $errors = [];
-if ($first_name === ''){
+if ($firstname === ''){
      $errors[] = "First Name is required.";
 }
-elseif(strlen($first_name) < 2){
+elseif(strlen($firstname) < 2){
     $errors[] = "First name needs to be at least two characters";
 }
 
-if ($last_name === ''){
+if ($lastname === ''){
      $errors[] = "Last Name is required.";
 }
-elseif(strlen($last_name) < 2){
+elseif(strlen($lastname) < 2){
     $errors[] = "Last name needs to be at least two characters";
 }
 
@@ -69,8 +69,8 @@ if ($action === 'create') {
     ";
     $stmt = $pdo->prepare($sql);
 
-    $stmt->bindParam(':first_name',  $first_name);
-    $stmt->bindParam(':last_name',   $last_name);
+    $stmt->bindParam(':firstname',  $firstname);
+    $stmt->bindParam(':lastname',   $lastname);
     $stmt->bindParam(':phone',       $phone);
     $stmt->bindParam(':email',       $email);
 
@@ -90,8 +90,8 @@ elseif ($action === 'update' && $id > 0) {
     ";
     $stmt = $pdo->prepare($sql);
 
-    $stmt->bindParam(':first_name',  $first_name);
-    $stmt->bindParam(':last_name',   $last_name);
+    $stmt->bindParam(':firstname',  $firstname);
+    $stmt->bindParam(':lastname',   $lastname);
     $stmt->bindParam(':phone',       $phone);
     $stmt->bindParam(':email',       $email);
     $stmt->bindParam(':id',          $id, PDO::PARAM_INT);
