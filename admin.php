@@ -20,3 +20,7 @@ try {
 } catch (PDOException $e) {
     die("Delete failed: " . $e->getMessage());
 }
+?>
+<?php
+//update feature
+require "includes/config.php";
