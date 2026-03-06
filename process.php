@@ -44,3 +44,38 @@ if ($phone === null || $phone === '') {
 ])) {
     $errors[] = "Phone number format is invalid.";
 }
+
+
+if (!empty($errors)) {
+    require "includes/index.php";
+    echo "<div class='alert alert-danger mt-4'>";
+    echo "<h2>Please fix the following errors:</h2>";
+    echo "<ul>";
+    foreach ($errors as $error) {
+        echo "<li>" . htmlspecialchars($error) . "</li>";
+    }
+    echo "</ul>";
+    echo "</div>";
+    require "includes/index.php";
+    exit;
+}
+
+
+if ($action === 'create') {
+    $sql = "
+        INSERT INTO team_members 
+        (first_name, last_name, phone, email)
+        VALUES (:first_name, :last_name, :phone, :email)
+    ";
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->bindParam(':first_name',  $first_name);
+    $stmt->bindParam(':last_name',   $last_name);
+    $stmt->bindParam(':phone',       $phone);
+    $stmt->bindParam(':email',       $email);
+
+    $stmt->execute();
+
+    header("Location: index.php?msg=added");
+    exit;
+}
