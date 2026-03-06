@@ -68,4 +68,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
   }
 }
+
+$sql = "select * from registration where firstname =:firstname";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':firstname', $firstName);
+$stmt->execute();
+
+
+$firstName = $stmt->fetch();
   
